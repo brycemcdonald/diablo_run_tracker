@@ -23,10 +23,8 @@ fun SelectRunNavigation(
         SelectRunScreen(
             state = viewModel.state,
             onRunSelected = { run ->
-                val transfer = "/${run.id}/${run.runeName}/${run.playerNumber}"
-                navController.navigateTo(
-                    route = Screen.StartRun.route+transfer
-                )
+              //  val transfer = "/${run.id}/${run.runeName}/${run.playerNumber}"
+                navController.navigateTo(route = Screen.StartRun.route+"/${run.runName}/${run.id}/${run.playerNumber}")
             },
             onEvent = { event ->
                 viewModel.onEvent(event)

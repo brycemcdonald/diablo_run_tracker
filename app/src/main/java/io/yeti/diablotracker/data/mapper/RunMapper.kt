@@ -12,7 +12,7 @@ import java.time.LocalDateTime
 fun Run.toRunEntity () : RunEntity {
     return RunEntity(
         id = id,
-        name = runeName,
+        name = runName,
         count = runAmounts,
         active = isActive,
         isFavourite = isFavourite,
@@ -30,7 +30,7 @@ fun Run.toRunEntity () : RunEntity {
 fun RunEntity.toRun () : Run {
     return Run(
         id = id,
-        runeName = name,
+        runName = name,
         runAmounts = count,
         playerNumber = 1,
         runesFound = arrayListOf(),

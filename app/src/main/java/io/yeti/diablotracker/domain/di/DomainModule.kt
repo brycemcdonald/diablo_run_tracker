@@ -8,6 +8,7 @@ import dagger.hilt.android.scopes.ViewModelScoped
 import io.yeti.diablotracker.domain.repository.RunRepository
 import io.yeti.diablotracker.domain.use_case.AppUseCases
 import io.yeti.diablotracker.domain.use_case.GetRunUseCase
+import io.yeti.diablotracker.domain.use_case.GetSingleRunUseCase
 import io.yeti.diablotracker.domain.use_case.SaveRunUseCase
 import javax.inject.Singleton
 
@@ -21,7 +22,8 @@ object DomainModule {
     fun provideAppUseCases (rep : RunRepository) : AppUseCases {
         return AppUseCases(
             getRunUseCase = GetRunUseCase(rep),
-            saveRunUseCase = SaveRunUseCase(rep)
+            saveRunUseCase = SaveRunUseCase(rep),
+            getSingleRunUseCase = GetSingleRunUseCase(rep)
         )
     }
 

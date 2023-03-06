@@ -1,6 +1,7 @@
 package io.yeti.diablotracker.ui.components
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -10,6 +11,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.dp
 import io.yeti.diablotracker.ui.theme.DiabloTrackerTheme
 import io.yeti.diablotracker.ui.theme.STANDARD_TEXT_SIZE
 import io.yeti.diablotracker.ui.theme.WEIGHT_400
@@ -25,7 +27,7 @@ fun GenericText(
 
 ) {
         Text(
-            modifier = Modifier,
+            modifier = modifier,
             text =  if(staticText != null)  stringResource(id = staticText) else mutableText,
             fontSize = textSize,
             fontWeight = FontWeight(WEIGHT_400),

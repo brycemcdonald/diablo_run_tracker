@@ -27,8 +27,9 @@ fun RowScope.MainButton (
     buttonText : String //Can make Int.
 
 ) {
-        Row(
 
+
+        Row(
             Modifier
                 .weight(1f)
                 .align(Alignment.Bottom).then(modifier)) {

@@ -12,13 +12,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
+import androidx.navigation.compose.*
 import androidx.navigation.navArgument
 import dagger.hilt.android.AndroidEntryPoint
 import io.yeti.diablotracker.navigation.CreateRunNavigation
@@ -81,12 +80,22 @@ private fun FullNavigationStack ()  {
             composable(Screen.SelectRun.route) { SelectRunNavigation(navController) }
             composable(Screen.CreateRun.route) { CreateRunNavigation(navController) }
             composable(Screen.Data.route) { SelectRunNavigation(navController) }
-            composable(Screen.Data.route,
+            composable(Screen.StartRun.route + "/{runName}/{runId}/{playerNumber}",
                 arguments = listOf(
                 navArgument("runId") { type = NavType.IntType },
                 navArgument("runName") { type = NavType.StringType },
                 navArgument("playerNumber") { type = NavType.IntType },
-            )) { StartRunNavigation(navController = navController)}
+            )) {
+                StartRunNavigation(navController = navController, it)
+            }
+        } //  //"start_run/{runId}/{runName}/{playerNumber}"
+    }
+
+    fun NavGraphBuilder.innerGraph(navController: NavController) {
+        navigation(startDestination = "username", route = "login") {
+            composable("username") {  }
+            composable("password") {  }
+            composable("registration") {  }
         }
     }
 }

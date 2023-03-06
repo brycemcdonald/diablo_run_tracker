@@ -17,19 +17,18 @@ import javax.inject.Inject
 
 @HiltViewModel
 class StartRunViewModel @Inject constructor(
-    savedStateHandle: SavedStateHandle,
+    //savedStateHandle: SavedStateHandle,
     private val appUseCases: AppUseCases
 ) : ViewModel()  {
 
-    private val runId: Int = checkNotNull(savedStateHandle["runId"])
+   // private val runId: Int = checkNotNull(savedStateHandle["runId"])
 
 
     var state by mutableStateOf(StartRunState())
         private set
 
-    init {
 
-    }
+
 
     fun onEvent(event : StartRunEvent) {
         when(event) {
@@ -37,10 +36,10 @@ class StartRunViewModel @Inject constructor(
         }
     }
 
-    private  fun getIndividualRun() {
-            appUseCases.getRunUseCase.invoke().map {
-                Log.i("Select Run VM", "Run List : $it")
-               // state = state.copy(runList = it)
+    fun getIndividualRun(runId : Int) {
+            appUseCases.getSingleRunUseCase.invoke(runId).map {
+                Log.i("StartRunViewModel", "Run Found : $it")
+               state = state.copy(run = it)
             }.launchIn(viewModelScope)
 
 

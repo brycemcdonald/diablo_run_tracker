@@ -37,7 +37,7 @@ import javax.inject.Inject
                                 isFavourite = false,
                                 isActive = true,
                                 runesFound = arrayListOf(),
-                                runeName = state.runName
+                                runName = state.runName
                             )
                         )
                         state = state.copy(saveIsComplete = true)

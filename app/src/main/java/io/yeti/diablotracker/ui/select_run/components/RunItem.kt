@@ -53,7 +53,7 @@ fun RunItem(
             Spacer(modifier = Modifier.width(8.dp))
             GenericText(
                 staticText = null,
-                mutableText = run.runeName,
+                mutableText = run.runName,
                 typography = MaterialTheme.typography.h6
             )
             Spacer(modifier = Modifier.width(16.dp))
@@ -85,7 +85,7 @@ fun PreviewRunItem() {
 
     val run by remember { mutableStateOf(Run(
         //id = 1,
-        runeName = "Secret Cow",
+        runName = "Secret Cow",
         runAmounts = 98,
         playerNumber = 1,
         runesFound = arrayListOf(),
