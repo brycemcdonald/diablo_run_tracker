@@ -16,7 +16,6 @@ class GetSingleRunUseCase(
 
     operator fun invoke(runId : Int): Flow<Run> {
         return runRepository.getSingleRun(runId)
-
     }
 }
 

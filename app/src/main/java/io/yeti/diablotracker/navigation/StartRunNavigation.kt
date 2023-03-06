@@ -21,20 +21,14 @@ fun StartRunNavigation(
     navBackStackEntry: NavBackStackEntry,
     viewModel: StartRunViewModel = hiltViewModel()
 ) {
-    /*
-             navArgument("runId") { type = NavType.IntType },
-                navArgument("runName") { type = NavType.StringType },
-                navArgument("playerNumber") { type = NavType.IntType },
-     */
-
-    val runName = navBackStackEntry.arguments?.getString("runName") ?: "Not Found"
     val runId = navBackStackEntry.arguments?.getInt("runId") ?: 0
-    val playerNumber = navBackStackEntry.arguments?.getInt("playerNumber") ?: 0
-
     viewModel.getIndividualRun(runId)
 
     DiabloTrackerTheme {
         StartRunScreen(
+            runComplete = { run ->
+                          //NavigationToAddRuneScreen
+            },
             onBackClicked = {
               navController.popBackStack()
             },

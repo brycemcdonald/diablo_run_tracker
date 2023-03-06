@@ -39,11 +39,6 @@ fun RunItem(
                     modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
-//                        .clickable(
-//                            interactionSource = remember { MutableInteractionSource() },
-//                            onClick = { onStartRun() },
-//                            indication = rememberRipple(bounded = true)
-//                        )
         ) {
             GenericText(
                 staticText = null,

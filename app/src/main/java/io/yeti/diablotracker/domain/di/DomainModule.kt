@@ -6,10 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
 import io.yeti.diablotracker.domain.repository.RunRepository
-import io.yeti.diablotracker.domain.use_case.AppUseCases
-import io.yeti.diablotracker.domain.use_case.GetRunUseCase
-import io.yeti.diablotracker.domain.use_case.GetSingleRunUseCase
-import io.yeti.diablotracker.domain.use_case.SaveRunUseCase
+import io.yeti.diablotracker.domain.use_case.*
 import javax.inject.Singleton
 
 
@@ -23,7 +20,8 @@ object DomainModule {
         return AppUseCases(
             getRunUseCase = GetRunUseCase(rep),
             saveRunUseCase = SaveRunUseCase(rep),
-            getSingleRunUseCase = GetSingleRunUseCase(rep)
+            getSingleRunUseCase = GetSingleRunUseCase(rep),
+            updateRunUseCase = UpdateRunUseCase(rep)
         )
     }
 
