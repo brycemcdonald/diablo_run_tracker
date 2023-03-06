@@ -10,16 +10,12 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
-class GetRunUseCase(
+class GetSingleRunUseCase(
     private val runRepository: RunRepository,
 ) {
 
-    operator fun invoke(): Flow<List<Run>> {
-//        CoroutineScope(IO).launch {
-//           Log.i("Select Run Get Run Use Case:", "${runRepository.getAllRunList().size}")
-//        }
-//        Log.i("Select Run Get Run Use Case:", "${runRepository.getAllRuns()}")
-        return runRepository.getAllRuns()
+    operator fun invoke(runId : Int): Flow<Run> {
+        return runRepository.getSingleRun(runId)
 
     }
 }

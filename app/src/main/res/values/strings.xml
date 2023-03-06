@@ -2,6 +2,7 @@
     <string name="app_name">DiabloTracker</string>
     <string name="select_run">Select Run</string>
     <string name="create_run">Create Run</string>
+    <string name="start_run">Start Run</string>
     <string name="data_of_runs">Data</string>
 
     <string name="complete">Complete</string>
@@ -10,7 +11,13 @@
     <string name="no">No</string>
 
     <string name="label_enter_run">Enter run name</string>
-
+    <string name="please_add_run">Please add run</string>
+    <string name="player_count">Player count</string>
+    <string name="okay">Okay</string>
+    <string name="save_complete">Save Complete</string>
+    <string name="save_complete_description">"The run has been saved. Please see select run"</string>
+    <string name="no_run_name_found">No name entered</string>
+    <string name="no_run_name_description">Please enter a name for the run</string>
 
 
 </resources>

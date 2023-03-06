@@ -32,7 +32,7 @@ fun TopBar(
     @StringRes title: Int,
     floatingActionBar: Boolean = false,
     floatingAction: () -> Unit = {},
-    showActionBarIcon: Boolean = true,
+    showActionBarIcon: Boolean = false,
     showActionOnClick: () -> Unit = {},
     content: @Composable () -> Unit,
 ) {
@@ -83,7 +83,7 @@ fun TopAppBar(
 
                 },
                 backgroundColor = MaterialTheme.colors.primary,
-                contentColor = Color.White,
+                contentColor = MaterialTheme.colors.onSurface,
                 elevation = 10.dp
 
 

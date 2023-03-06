@@ -2,6 +2,7 @@ package io.yeti.diablotracker.data.local
 
 import androidx.room.*
 import io.yeti.diablotracker.data.entity.RunEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface RunDao {
@@ -15,8 +16,10 @@ interface RunDao {
     fun delete(item: RunEntity)
 
     @Query("SELECT * FROM run_entity")
-    fun getAllItems(): List<RunEntity>
+    fun getAllRuns(): Flow<List<RunEntity>>
 
+    @Query("SELECT * FROM run_entity")
+    fun getAllRunsList(): List<RunEntity>
     @Query("SELECT * FROM run_entity WHERE id = :id")
-    fun getItemById(id: Int): RunEntity
+    fun getRunById(id: Int): Flow<RunEntity>
 }

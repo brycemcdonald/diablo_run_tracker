@@ -3,10 +3,7 @@ package io.yeti.diablotracker.ui.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
 import androidx.compose.runtime.Composable
@@ -14,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.unit.dp
 import io.yeti.diablotracker.ui.theme.DiabloTrackerTheme
 import io.yeti.diablotracker.ui.theme.STANDARD_PADDING
 import io.yeti.diablotracker.ui.theme.STANDARD_TEXT_SIZE
@@ -38,11 +36,13 @@ fun RowScope.MainButton (
                 modifier = Modifier
                     .testTag("MainPressed")
                     .fillMaxWidth()
-                    .padding(STANDARD_PADDING),
+                    .padding(STANDARD_PADDING).height(54.dp),
                 onClick = {
                     buttonPressed()
                 },
-                colors = ButtonDefaults.buttonColors(backgroundColor = androidx.compose.ui.graphics.Color.DarkGray)
+
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = MaterialTheme.colors.onPrimary)
             ) {
                 if(showIcon) {
                     Icon(
@@ -54,7 +54,7 @@ fun RowScope.MainButton (
                 }
                 Text(
                     text = buttonText,
-                    color = White,
+                    color = MaterialTheme.colors.onSurface,
                     fontSize = STANDARD_TEXT_SIZE)
 
             }

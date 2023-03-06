@@ -1,14 +1,12 @@
 package io.yeti.diablotracker.ui.components
 
-import android.icu.text.ListFormatter.Width
+
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.AlertDialog
-import androidx.compose.material.Button
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -24,7 +22,9 @@ fun AlertDialogBox(
     title: String,
     text: String,
     onYesClicked: () -> Unit,
+    @StringRes yesNameClickText: Int = R.string.yes,
     onNoClicked: () -> Unit,
+    showNoClick : Boolean = false,
     onDismiss: () -> Unit
 
 ) {
@@ -32,12 +32,12 @@ fun AlertDialogBox(
     AlertDialog(
         onDismissRequest = { onDismiss() },
         title = { Text(
-            color = Color.Blue,
+            color = MaterialTheme.colors.onSurface,
             text = title,
             fontWeight = FontWeight(400))
                 },
         text = { Text(
-            color = Color.Blue,
+            color = MaterialTheme.colors.onSurface,
             text = text) },
         backgroundColor = Color.White,
         confirmButton = {
@@ -47,11 +47,13 @@ fun AlertDialogBox(
 //
             ButtonRow {
                 TextButton(onClick = { onYesClicked() }) {
-                    Text(text = stringResource(id = R.string.yes))
+                    Text(text = stringResource(id = yesNameClickText))
                 }
-                Spacer(modifier = Modifier.width(16.dp))
-                TextButton(onClick = { onNoClicked() }) {
-                    Text(text = stringResource(id = R.string.no))
+                if (showNoClick) {
+                    Spacer(modifier = Modifier.width(16.dp))
+                    TextButton(onClick = { onNoClicked() }) {
+                        Text(text = stringResource(id = R.string.no))
+                    }
                 }
             }
 

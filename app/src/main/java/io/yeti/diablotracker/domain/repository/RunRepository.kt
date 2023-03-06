@@ -5,8 +5,12 @@ import kotlinx.coroutines.flow.Flow
 
 interface RunRepository {
 
-    suspend fun getAllRuns () : Flow<List<Run>>
-    suspend fun getSingleRun(runId : Int) : Run?
+
+    suspend fun insertRun(run : Run)
+    fun getAllRuns () : Flow<List<Run>>
+
+    suspend fun getAllRunList () : List<Run>
+    fun getSingleRun(runId : Int) : Flow<Run>
     suspend fun deleteRun(run : Run)
     suspend fun updateRun(run : Run)
 

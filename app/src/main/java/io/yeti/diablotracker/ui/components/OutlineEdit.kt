@@ -7,10 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Icon
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -40,20 +37,16 @@ fun OutLineEdit(
 
     var inputValue by remember { mutableStateOf(text) }
 
-//
-//    TextField(
-//        value = inputValue,
-//        onValueChange = { inputValue = it },
-//        label = { Text("Label") }
-//    )
-
 
     Column {
         OutlinedTextField(
             modifier = modifier,
             singleLine = true,
             value = inputValue,
-            onValueChange = { inputValue = it },
+            onValueChange = {
+                onValueChanged(it)
+                inputValue = it
+                            },
             label = { Text(
                 fontSize = STANDARD_TEXT_SIZE,
                 text = stringResource(id = label)
@@ -61,7 +54,7 @@ fun OutLineEdit(
 
             enabled = enabled,
             textStyle = TextStyle(
-                color = Color.Blue,
+                color = MaterialTheme.colors.onSurface,
                 fontSize = STANDARD_TEXT_SIZE,
                 fontFamily = FontFamily.SansSerif,
                 fontStyle = FontStyle.Normal
